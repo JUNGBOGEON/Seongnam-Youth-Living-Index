@@ -17,14 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="h-full antialiased" data-scroll-behavior="smooth">
-      <body className="min-h-full flex flex-col bg-white text-[#1d1d1f]">
+      <body className="flex min-h-full flex-col bg-white text-ink">
         <div className="scroll-progress-rail" aria-hidden="true">
           <div className="scroll-progress-bar" />
         </div>
         <GlobalHeader />
         <PageTransition>{children}</PageTransition>
-        <footer className="border-t border-[#d2d2d7] bg-[#f5f5f7]">
-          <div className="mx-auto max-w-[1240px] px-6 py-10 type-micro text-[#6e6e73]">
+        <footer className="border-t border-line bg-panel">
+          <div className="footer-shell py-10 type-micro text-muted">
             <p className="mb-2">
               SYLI (Seongnam Youth Living Index) — 2026 성남시 공공데이터 활용
               시각화 경진대회 출품작

@@ -23,7 +23,7 @@ export function GlobalHeader() {
 
   return (
     <div className="absolute left-0 right-0 top-0 z-50 px-6">
-      <div className="mx-auto max-w-[1180px]">
+      <div className="page-shell">
         <SiteHeader
           active={active}
           className="pointer-events-auto"

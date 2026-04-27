@@ -1,4 +1,3 @@
-# dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -8,7 +7,6 @@
 !.yarn/releases
 !.yarn/versions
 
-# build output
 /.next/
 /out/
 /build
@@ -16,26 +14,21 @@
 /.turbo
 /coverage
 
-# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 *.log
 
-# env / secrets
 .env*
 *.pem
 
-# platform state
 .vercel
 .netlify
 
-# generated files
 *.tsbuildinfo
 next-env.d.ts
 
-# local files
 .DS_Store
 Thumbs.db
 AGENTS.md
@@ -46,7 +39,6 @@ DESIGN.md
 *.swp
 *.tmp
 
-# large local data dumps
 /data/
 /raw/
 *.zip

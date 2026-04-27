@@ -16,17 +16,17 @@ export default async function MapPage() {
 
   return (
     <div className="section-white">
-      <section className="border-b border-[#d2d2d7] bg-[#fbfbfd]">
-        <div className="mx-auto max-w-[1440px] px-4 pb-5 pt-[150px] sm:px-6 sm:pt-[118px]">
+      <section className="border-b border-line bg-surface">
+        <div className="page-shell-wide page-intro-tight">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="eyebrow mb-3">Interactive Map</p>
-              <h1 className="text-[34px] font-semibold leading-[1.1] text-[#1d1d1f] sm:text-[42px]">
+              <h1 className="panel-title font-semibold leading-tight text-ink sm:text-4xl">
                 성남 50개 행정동을 지표별로 비교합니다.
               </h1>
             </div>
 
-            <dl className="grid grid-cols-3 overflow-hidden rounded-[8px] border border-[#d2d2d7] bg-white lg:min-w-[420px]">
+            <dl className="grid grid-cols-3 overflow-hidden rounded-field border border-line bg-white lg:min-w-96">
               <SummaryCell label="동 수" value={scores.length.toString()} />
               <SummaryCell label="최고점" value={top.SYLI_v02.toFixed(1)} />
               <SummaryCell label="최저점" value={bottom.SYLI_v02.toFixed(1)} />
@@ -35,7 +35,7 @@ export default async function MapPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 sm:py-6">
+      <section className="page-shell-wide py-4 sm:py-6">
         <MapView scores={scores} />
       </section>
     </div>
@@ -44,9 +44,9 @@ export default async function MapPage() {
 
 function SummaryCell({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border-r border-[#d2d2d7] p-4 last:border-r-0">
-      <dt className="text-[12px] font-semibold text-[#86868b]">{label}</dt>
-      <dd className="mt-1 text-[22px] font-semibold tabular-nums text-[#1d1d1f]">
+    <div className="border-r border-line p-4 last:border-r-0">
+      <dt className="type-micro font-semibold text-subtle">{label}</dt>
+      <dd className="mt-1 text-2xl font-semibold tabular-nums text-ink">
         {value}
       </dd>
     </div>

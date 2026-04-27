@@ -69,23 +69,23 @@ export default async function InsightsPage() {
   return (
     <div>
       <section className="section-white">
-        <div className="mx-auto max-w-[1180px] px-6 pb-20 pt-[150px] sm:pt-[118px]">
+        <div className="page-shell page-intro-roomy">
           <p className="eyebrow mb-6">Insights</p>
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.92fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-end">
             <div>
               <h1 className="type-hero-xl">
                 숫자는 작게,
                 <br />
                 판단은 선명하게.
               </h1>
-              <p className="mt-7 max-w-[640px] text-[20px] leading-[1.45] text-[#424245]">
+              <p className="mt-7 copy-narrow text-xl leading-normal text-utility">
                 성남의 청년 주거 문제는 한 줄의 순위가 아니라 통근, 월세,
                 생활 인프라, 금융 부담이 겹치는 구조입니다. 아래 20개 발견은
                 정책 시뮬레이터가 다뤄야 할 압력 지점을 정리한 것입니다.
               </p>
             </div>
 
-            <div className="rounded-[28px] border border-[#d2d2d7] bg-[#f5f5f7] p-8">
+            <div className="rounded-module border border-line bg-panel p-8">
               <p className="eyebrow mb-7">SYLI Spread</p>
               <div className="grid gap-6 sm:grid-cols-2">
                 <RankingBlock title="상위 동" items={top3} mode="top" />
@@ -97,7 +97,7 @@ export default async function InsightsPage() {
       </section>
 
       <section className="section-dark">
-        <div className="mx-auto max-w-[1180px] px-6 py-24">
+        <div className="page-shell section-pad">
           <div className="grid gap-8 md:grid-cols-3">
             <Statement
               label="Finding 02"
@@ -119,16 +119,16 @@ export default async function InsightsPage() {
       </section>
 
       <section className="section-gray">
-        <div className="mx-auto max-w-[1180px] px-6 py-24">
+        <div className="page-shell section-pad">
           <div className="space-y-16">
             {groups.map((group) => (
               <section key={group.label}>
-                <div className="mb-8 grid gap-4 md:grid-cols-[260px_1fr] md:items-end">
+                <div className="mb-8 insight-group-heading">
                   <p className="eyebrow">{group.label}</p>
                   <h2 className="type-section">{group.title}</h2>
                 </div>
 
-                <ol className="overflow-hidden rounded-[18px] border border-[#d2d2d7] bg-white">
+                <ol className="overflow-hidden rounded-card border border-line bg-white">
                   {group.ids.map((id) => {
                     const insight = byId.get(id);
                     if (!insight) return null;
@@ -136,15 +136,15 @@ export default async function InsightsPage() {
                     return (
                       <li
                         key={insight.id}
-                        className="grid gap-5 border-b border-[#d2d2d7] p-6 last:border-b-0 md:grid-cols-[72px_1fr_130px] md:items-center"
+                        className="insight-row border-b border-line p-6 last:border-b-0"
                       >
-                        <span className="text-[11px] font-semibold text-[#86868b]">
+                        <span className="copy-tiny font-semibold text-subtle">
                           {String(insight.id).padStart(2, "0")}
                         </span>
-                        <p className="text-[18px] font-medium leading-[1.35] text-[#1d1d1f]">
+                        <p className="text-lg font-medium leading-snug text-ink">
                           {insight.title}
                         </p>
-                        <span className="text-left text-[30px] font-semibold leading-none text-[#1d1d1f] tabular-nums md:text-right">
+                        <span className="text-left text-3xl font-semibold leading-none text-ink tabular-nums md:text-right">
                           {insight.value}
                         </span>
                       </li>
@@ -158,15 +158,15 @@ export default async function InsightsPage() {
       </section>
 
       <section className="section-white">
-        <div className="mx-auto max-w-[1180px] px-6 py-24">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="page-shell section-pad">
+          <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <p className="eyebrow mb-5">Policy Read</p>
               <h2 className="type-section">
                 그래서 어디에 개입해야 하나.
               </h2>
             </div>
-            <div className="grid gap-px overflow-hidden rounded-[18px] bg-[#d2d2d7] md:grid-cols-3">
+            <div className="grid gap-px overflow-hidden rounded-card bg-line md:grid-cols-3">
               <PolicyCard
                 title="저가 저장소 보존"
                 body="하대원, 은행, 복정 일대는 점수는 낮아도 월세 접근성이 높다. 정비와 공급 정책에서 밀려나면 대체지가 사라진다."
@@ -198,20 +198,20 @@ function RankingBlock({
 }) {
   return (
     <div>
-      <h2 className="mb-5 text-[13px] font-semibold text-[#1d1d1f]">
+      <h2 className="mb-5 copy-label font-semibold text-ink">
         {title}
       </h2>
       <ol className="space-y-3">
         {items.map((item, index) => (
           <li key={`${mode}-${item.동명}`} className="flex items-baseline gap-3">
-            <span className="w-5 text-[11px] font-semibold text-[#86868b]">
+            <span className="w-5 copy-tiny font-semibold text-subtle">
               {index + 1}
             </span>
-            <span className="min-w-0 flex-1 text-[15px] font-medium text-[#1d1d1f]">
+            <span className="min-w-0 flex-1 copy-small font-medium text-ink">
               {item.동명}
-              <span className="ml-2 font-normal text-[#6e6e73]">{item.구}</span>
+              <span className="ml-2 font-normal text-muted">{item.구}</span>
             </span>
-            <span className="text-[15px] font-semibold tabular-nums text-[#1d1d1f]">
+            <span className="copy-small font-semibold tabular-nums text-ink">
               {item.SYLI_v02.toFixed(1)}
             </span>
           </li>
@@ -234,7 +234,7 @@ function Statement({
     <article className="border-t border-white/18 pt-6">
       <p className="eyebrow eyebrow-dark mb-7">{label}</p>
       <div className="numeric-xl text-white">{value}</div>
-      <p className="mt-5 max-w-[280px] text-[15px] leading-[1.45] text-[#a1a1a6]">
+      <p className="mt-5 max-w-xs copy-small leading-normal text-dim-copy">
         {body}
       </p>
     </article>
@@ -244,10 +244,10 @@ function Statement({
 function PolicyCard({ title, body }: { title: string; body: string }) {
   return (
     <article className="bg-white p-7">
-      <h3 className="text-[22px] font-semibold leading-[1.18] text-[#1d1d1f]">
+      <h3 className="text-2xl font-semibold leading-tight text-ink">
         {title}
       </h3>
-      <p className="mt-5 text-[15px] leading-[1.55] text-[#424245]">{body}</p>
+      <p className="mt-5 copy-small leading-relaxed text-utility">{body}</p>
     </article>
   );
 }

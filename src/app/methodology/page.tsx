@@ -75,23 +75,23 @@ export default async function MethodologyPage() {
   return (
     <div>
       <section className="section-dark">
-        <div className="mx-auto max-w-[1120px] px-6 pb-24 pt-[150px] sm:pt-[118px]">
+        <div className="page-shell-narrow page-intro pb-24">
           <p className="eyebrow eyebrow-dark mb-6">Methodology</p>
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-end">
             <div>
               <h1 className="type-hero-xl text-white">
                 점수는 설명
                 <br />
                 가능해야 합니다.
               </h1>
-              <p className="mt-7 max-w-[650px] text-[20px] leading-[1.45] text-[#d2d2d7]">
+              <p className="mt-7 copy-medium text-xl leading-normal text-line">
                 SYLI는 50개 행정동을 하나의 순위로 압축하지만, 산식과
                 가중치, 결측 처리, 한계를 함께 공개합니다. 지도 위의 색은
                 결론이 아니라 검토 가능한 정책 가설입니다.
               </p>
             </div>
 
-            <div className="grid grid-cols-3 overflow-hidden rounded-[18px] border border-white/15">
+            <div className="grid grid-cols-3 overflow-hidden rounded-card border border-white/15">
               <HeroMetric label="동 수" value={scores.length.toString()} />
               <HeroMetric label="계약" value={contracts.toLocaleString()} />
               <HeroMetric label="최고점" value={top.SYLI_v02.toFixed(1)} />
@@ -101,26 +101,26 @@ export default async function MethodologyPage() {
       </section>
 
       <section className="section-gray">
-        <div className="mx-auto max-w-[1120px] px-6 py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="page-shell-narrow section-pad">
+          <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <p className="eyebrow mb-5">Formula</p>
               <h2 className="type-section mb-6">
                 다섯 개 축을 같은 단위로 맞춘 뒤 가중평균합니다.
               </h2>
-              <p className="type-body text-[#424245]">
+              <p className="type-body text-utility">
                 모든 입력 변수는 0-100점으로 변환합니다. 높을수록 청년
                 1인가구에게 유리한 값이며, 월세처럼 낮을수록 좋은 변수는
                 역방향으로 정규화합니다.
               </p>
             </div>
 
-            <div className="rounded-[28px] border border-[#d2d2d7] bg-white p-8 md:p-10">
-              <div className="mb-8 text-[15px] leading-[1.8] text-[#424245]">
-                <span className="font-semibold text-[#1d1d1f]">SYLI(동)</span>{" "}
+            <div className="rounded-module border border-line bg-white p-8 md:p-10">
+              <div className="mb-8 copy-small leading-loose text-utility">
+                <span className="font-semibold text-ink">SYLI(동)</span>{" "}
                 = Σ wᵢ × normalized(variableᵢ, 동)
               </div>
-              <div className="h-3 overflow-hidden rounded-full bg-[#f5f5f7]">
+              <div className="h-3 overflow-hidden rounded-full bg-panel">
                 {variables.map((v) => (
                   <span
                     key={v.key}
@@ -149,35 +149,35 @@ export default async function MethodologyPage() {
       </section>
 
       <section className="section-white">
-        <div className="mx-auto max-w-[1120px] px-6 py-24">
-          <div className="mb-12 max-w-[720px]">
+        <div className="page-shell-narrow section-pad">
+          <div className="mb-12 max-w-3xl">
             <p className="eyebrow mb-5">Variables</p>
             <h2 className="type-section">활성 변수와 산출 방식.</h2>
           </div>
 
-          <div className="divide-y divide-[#d2d2d7] border-y border-[#d2d2d7]">
+          <div className="divide-y divide-line border-y border-line">
             {variables.map((v, index) => (
               <article
                 key={v.key}
-                className="grid gap-6 py-8 md:grid-cols-[110px_1fr_120px] md:items-start"
+                className="variable-row py-8"
               >
-                <div className="text-[11px] font-semibold text-[#86868b]">
+                <div className="copy-tiny font-semibold text-subtle">
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <div>
-                  <h3 className="text-[24px] font-semibold leading-[1.15] text-[#1d1d1f]">
+                  <h3 className="type-util font-semibold leading-tight text-ink">
                     {v.label}
                   </h3>
-                  <p className="mt-3 type-body text-[#424245]">{v.method}</p>
-                  <p className="mt-4 text-[13px] text-[#6e6e73]">
+                  <p className="mt-3 type-body text-utility">{v.method}</p>
+                  <p className="mt-4 copy-label text-muted">
                     Source · {v.source}
                   </p>
                 </div>
                 <div className="text-left md:text-right">
-                  <div className="numeric-l !text-[34px] text-[#1d1d1f]">
+                  <div className="panel-title font-semibold leading-none text-ink tabular-nums">
                     {v.weight}
                   </div>
-                  <div className="mt-1 text-[12px] text-[#6e6e73]">weight</div>
+                  <div className="mt-1 type-micro text-muted">weight</div>
                 </div>
               </article>
             ))}
@@ -186,30 +186,30 @@ export default async function MethodologyPage() {
       </section>
 
       <section className="section-gray">
-        <div className="mx-auto max-w-[1120px] px-6 py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="page-shell-narrow section-pad">
+          <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <p className="eyebrow mb-5">Data Lineage</p>
               <h2 className="type-section mb-6">
                 원천 데이터는 정책 질문별로만 사용합니다.
               </h2>
-              <p className="type-body text-[#424245]">
+              <p className="type-body text-utility">
                 데이터가 많다는 사실보다 어떤 판단에 쓰였는지가 중요합니다.
                 각 데이터는 통근, 생활, 가격, 공급 압력 중 하나의 역할로
                 제한해 해석했습니다.
               </p>
             </div>
 
-            <div className="grid gap-px overflow-hidden rounded-[18px] bg-[#d2d2d7] sm:grid-cols-2">
+            <div className="grid gap-px overflow-hidden rounded-card bg-line sm:grid-cols-2">
               {dataSources.map(([kind, scope, use]) => (
                 <div key={kind} className="bg-white p-6">
-                  <p className="text-[13px] font-semibold text-[#1d1d1f]">
+                  <p className="copy-label font-semibold text-ink">
                     {kind}
                   </p>
-                  <p className="mt-3 text-[14px] leading-[1.45] text-[#424245]">
+                  <p className="mt-3 copy-note leading-normal text-utility">
                     {scope}
                   </p>
-                  <p className="mt-5 text-[12px] leading-[1.35] text-[#6e6e73]">
+                  <p className="mt-5 type-micro leading-snug text-muted">
                     {use}
                   </p>
                 </div>
@@ -220,19 +220,19 @@ export default async function MethodologyPage() {
       </section>
 
       <section className="section-white">
-        <div className="mx-auto max-w-[1120px] px-6 py-24">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="page-shell-narrow section-pad">
+          <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <p className="eyebrow mb-5">Limits</p>
               <h2 className="type-section mb-6">좋은 지표는 모르는 것을 숨기지 않습니다.</h2>
             </div>
-            <ol className="divide-y divide-[#d2d2d7] border-y border-[#d2d2d7]">
+            <ol className="divide-y divide-line border-y border-line">
               {caveats.map((item, index) => (
                 <li key={item} className="flex gap-6 py-5">
-                  <span className="w-8 shrink-0 text-[11px] font-semibold text-[#86868b]">
+                  <span className="w-8 shrink-0 copy-tiny font-semibold text-subtle">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="type-body text-[#424245]">{item}</p>
+                  <p className="type-body text-utility">{item}</p>
                 </li>
               ))}
             </ol>
@@ -245,11 +245,11 @@ export default async function MethodologyPage() {
 
 function HeroMetric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border-r border-white/15 bg-white/[0.04] p-5 last:border-r-0">
-      <dt className="text-[11px] uppercase text-[#86868b]">
+    <div className="border-r border-white/15 bg-white/5 p-5 last:border-r-0">
+      <dt className="copy-tiny uppercase text-subtle">
         {label}
       </dt>
-      <dd className="mt-3 text-[30px] font-semibold leading-none text-white tabular-nums">
+      <dd className="mt-3 text-3xl font-semibold leading-none text-white tabular-nums">
         {value}
       </dd>
     </div>
@@ -259,10 +259,10 @@ function HeroMetric({ label, value }: { label: string; value: string }) {
 function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[11px] uppercase text-[#86868b]">
+      <dt className="copy-tiny uppercase text-subtle">
         {label}
       </dt>
-      <dd className="mt-2 text-[17px] font-semibold text-[#1d1d1f]">{value}</dd>
+      <dd className="mt-2 type-body font-semibold text-ink">{value}</dd>
     </div>
   );
 }

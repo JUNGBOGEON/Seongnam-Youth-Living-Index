@@ -100,13 +100,13 @@ export function SiteHeader({
   return (
     <header
       className={`flex flex-col gap-4 border-b py-4 transition-colors duration-300 sm:flex-row sm:items-center sm:justify-between ${
-        dark ? "border-white/18" : "border-[#d2d2d7]"
+        dark ? "border-white/18" : "border-line"
       } ${className}`}
     >
       <Link
         href="/"
-        className={`shrink-0 text-[15px] font-semibold tracking-[0] transition-[color,opacity] duration-300 hover:opacity-72 ${
-          dark ? "text-white" : "text-[#1d1d1f]"
+        className={`shrink-0 copy-small font-semibold transition-all duration-300 hover:opacity-72 ${
+          dark ? "text-white" : "text-ink"
         }`}
       >
         SYLI
@@ -114,14 +114,14 @@ export function SiteHeader({
 
       <nav
         aria-label="주요 메뉴"
-        className={`relative grid w-full max-w-[330px] grid-cols-4 gap-1 overflow-hidden rounded-full p-1 text-[12px] transition-colors duration-300 sm:w-[368px] sm:max-w-none sm:text-[14px] ${
-          dark ? "bg-white/10 text-white/72" : "bg-[#ececf0] text-[#6e6e73]"
+        className={`site-nav ${
+          dark ? "bg-white/10 text-white/72" : "bg-track text-muted"
         }`}
       >
         <span
           aria-hidden="true"
-          className={`absolute bottom-1 left-1 top-1 rounded-full transition-[transform,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            dark ? "bg-white" : "bg-[#1d1d1f]"
+          className={`site-nav-indicator ${
+            dark ? "bg-white" : "bg-ink"
           }`}
           style={indicatorStyle}
         />
@@ -137,11 +137,11 @@ export function SiteHeader({
               className={`relative z-10 min-w-0 overflow-hidden rounded-full px-1 py-2 text-center font-semibold transition-colors duration-200 sm:px-3 ${
                 selected
                   ? dark
-                    ? "text-[#1d1d1f]"
+                    ? "text-ink"
                     : "text-white"
                   : dark
                     ? "hover:text-white"
-                    : "hover:text-[#1d1d1f]"
+                    : "hover:text-ink"
               }`}
             >
               {item.label}
