@@ -71,25 +71,25 @@ export function createSpatialRead(
       accent: "#2f6f73",
       caption: "통근·생활 균형",
       names: ["서현1동", "성남동", "야탑1동", "백현동", "삼평동"],
-      title: "균형 적합축",
+      title: "균형 좋은 곳",
     },
     commute: {
       accent: "#0f4f66",
       caption: "판교 접근 강도",
       names: ["삼평동", "백현동", "판교동", "운중동", "서현1동"],
-      title: "판교 접근축",
+      title: "판교 가까운 곳",
     },
     rent: {
       accent: "#7a6333",
       caption: "저비용 후보지",
       names: ["하대원동", "복정동", "은행2동", "은행1동", "상대원1동"],
-      title: "월세 완충권",
+      title: "월세 낮은 곳",
     },
     infra: {
       accent: "#234c4e",
       caption: "생활 밀도",
       names: ["백현동", "정자1동", "서현1동", "수내1동", "삼평동"],
-      title: "생활 중심축",
+      title: "생활 편한 곳",
     },
   };
   const meta = readMeta[metricKey];

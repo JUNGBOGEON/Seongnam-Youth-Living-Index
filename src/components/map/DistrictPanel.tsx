@@ -21,10 +21,10 @@ export function DistrictPanel({
   const scoreRows = [
     { key: "syli", label: "종합", value: district.SYLI_v02 },
     { key: "commute", label: "판교 통근", value: district.SCORE_COMMUTE_PANGYO },
-    { key: "rent", label: "월세 접근성", value: district.SCORE_RENT },
-    { key: "infra", label: "생활 인프라", value: district.SCORE_INFRA },
-    { key: "youth", label: "청년 체류", value: district.SCORE_YOUTH_STAY },
-    { key: "lifestyle", label: "동 유형", value: district.SCORE_LIFESTYLE },
+    { key: "rent", label: "월세 부담", value: district.SCORE_RENT },
+    { key: "infra", label: "생활 편의", value: district.SCORE_INFRA },
+    { key: "youth", label: "청년 머무름", value: district.SCORE_YOUTH_STAY },
+    { key: "lifestyle", label: "동의 특징", value: district.SCORE_LIFESTYLE },
   ];
   const explanatoryRows = scoreRows.filter(
     (row) => row.key !== "syli" && row.key !== "lifestyle"
@@ -55,7 +55,7 @@ export function DistrictPanel({
         <div className="mt-6 grid gap-2">
           <div className="rounded-field border border-line bg-surface p-4">
             <p className="copy-tiny font-semibold uppercase text-subtle">
-              정책 판정
+              한줄 평가
             </p>
             <p className="mt-2 text-lg font-semibold leading-snug text-ink">
               {verdict.label}
@@ -63,7 +63,7 @@ export function DistrictPanel({
           </div>
           <div className="flex items-center justify-between gap-3 rounded-field bg-deep px-4 py-3 text-white">
             <span className="type-micro font-semibold text-white/62">
-              다음 검토
+              먼저 볼 점
             </span>
             <span className="text-right copy-note font-semibold">
               {verdict.nextStep}
@@ -73,7 +73,7 @@ export function DistrictPanel({
       </div>
 
       <div className="grid grid-cols-2 gap-px bg-line">
-        <MetaCell label="월세 중위" value={formatRent(district)} />
+        <MetaCell label="월세 중간값" value={formatRent(district)} />
         <MetaCell
           label="계약 수"
           value={`${(district.n_contracts ?? 0).toLocaleString()}건`}
@@ -81,7 +81,7 @@ export function DistrictPanel({
       </div>
 
       <div className="border-b border-line p-6">
-        <p className="eyebrow mb-4">Read</p>
+        <p className="eyebrow mb-4">요약</p>
         <p className="text-base leading-normal text-ink">
           {district.동명}은{" "}
           <span className="font-semibold">
@@ -97,7 +97,7 @@ export function DistrictPanel({
           {policyRead}
         </p>
         <p className="mt-4 border-t border-line pt-4 copy-label leading-normal text-subtle">
-          현재 지도는 {activeMetric.description} 기준의 분포를 보여줍니다.
+          지금 지도는 {activeMetric.description} 기준으로 동별 차이를 보여줍니다.
         </p>
       </div>
 

@@ -2,53 +2,53 @@ import type { Metadata } from "next";
 import { getInsights, getSyliScores, type Insight } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "인사이트 — SYLI",
+  title: "주요 내용 — SYLI",
   description:
-    "성남 청년 1인가구 주거 정책을 위한 통근, 월세, 생활 인프라, 금융·이주 인사이트.",
+    "성남 청년 1인가구가 집을 고를 때 봐야 할 통근, 월세, 생활 편의 숫자.",
 };
 
 const supplementalInsights: Insight[] = [
   {
     id: 14,
-    title: "동별 라이프스타일은 직장형 43, 거주형 5, 소비여가형 1, 학생형 1",
-    value: "4유형",
+    title: "성남 50개 동은 직장형이 가장 많습니다.",
+    value: "4가지",
   },
   {
     id: 15,
-    title: "청년 체류 피크는 삼평 12시, 서현1동 19시, 백현동 18시",
-    value: "3패턴",
+    title: "청년이 많이 머무는 시간은 동마다 다릅니다.",
+    value: "3가지",
   },
   {
     id: 16,
-    title: "대중교통 의존도는 하대원동 31.4%, 상대원2동 29.1%",
+    title: "하대원동은 대중교통 이용 비중이 높습니다.",
     value: "31.4%",
   },
   {
     id: 17,
-    title: "베드타운 지수는 야탑1동 58.3%, 삼평동 57.2%",
+    title: "야탑1동은 잠만 자는 동에 가까운 흐름이 보입니다.",
     value: "58.3%",
   },
 ];
 
 const groups = [
   {
-    label: "Commute",
-    title: "통근은 판교 하나로 설명되지 않습니다.",
+    label: "출퇴근",
+    title: "출퇴근은 판교만 보면 부족합니다.",
     ids: [1, 2, 3, 4, 5, 11],
   },
   {
-    label: "Living Cost",
-    title: "가격은 순위를 다시 씁니다.",
+    label: "월세",
+    title: "월세를 넣으면 순위가 달라집니다.",
     ids: [18, 19, 20],
   },
   {
-    label: "Urban Fabric",
-    title: "살기 좋은 동과 일하기 좋은 동은 다릅니다.",
+    label: "생활 환경",
+    title: "일하기 좋은 동과 살기 좋은 동은 다릅니다.",
     ids: [6, 7, 14, 15, 16, 17],
   },
   {
-    label: "Policy Pressure",
-    title: "유입, 부채, 공급 압력이 같은 방향을 가리킵니다.",
+    label: "주의할 점",
+    title: "이사, 빚, 공급 문제를 함께 봐야 합니다.",
     ids: [8, 9, 10, 12, 13],
   },
 ];
@@ -70,23 +70,23 @@ export default async function InsightsPage() {
     <div>
       <section className="section-white">
         <div className="page-shell page-intro-roomy">
-          <p className="eyebrow mb-6">Insights</p>
+          <p className="eyebrow mb-6">주요 내용</p>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-end">
             <div>
               <h1 className="type-hero-xl">
-                숫자는 작게,
+                숫자는 쉽게,
                 <br />
-                판단은 선명하게.
+                이유는 분명하게.
               </h1>
               <p className="mt-7 copy-narrow text-xl leading-normal text-utility">
-                성남의 청년 주거 문제는 한 줄의 순위가 아니라 통근, 월세,
-                생활 인프라, 금융 부담이 겹치는 구조입니다. 아래 20개 발견은
-                정책 시뮬레이터가 다뤄야 할 압력 지점을 정리한 것입니다.
+                성남에서 청년이 집을 고를 때는 출퇴근, 월세, 생활 편의,
+                빚 부담을 함께 봐야 합니다. 아래 숫자는 그중 꼭 봐야 할
+                내용을 골라 정리한 것입니다.
               </p>
             </div>
 
             <div className="rounded-module border border-line bg-panel p-8">
-              <p className="eyebrow mb-7">SYLI Spread</p>
+              <p className="eyebrow mb-7">점수 차이</p>
               <div className="grid gap-6 sm:grid-cols-2">
                 <RankingBlock title="상위 동" items={top3} mode="top" />
                 <RankingBlock title="하위 동" items={bottom3} mode="bottom" />
@@ -100,19 +100,19 @@ export default async function InsightsPage() {
         <div className="page-shell section-pad">
           <div className="grid gap-8 md:grid-cols-3">
             <Statement
-              label="Finding 02"
+              label="핵심 02"
               value="36%"
-              body="판교 체류자 중 4시간 이상 머무는 직장인 비중입니다."
+              body="판교에 4시간 이상 머무는 직장인 비중입니다."
             />
             <Statement
-              label="Finding 18"
+              label="핵심 18"
               value="5x"
-              body="판교동과 하대원동의 월세 중위값 격차입니다."
+              body="판교동과 하대원동의 월세 중간값 차이입니다."
             />
             <Statement
-              label="Finding 12"
+              label="핵심 12"
               value="6x"
-              body="20대 후반에서 30대로 넘어갈 때 관측되는 부채 증가폭입니다."
+              body="20대 후반에서 30대로 넘어갈 때 늘어나는 빚의 차이입니다."
             />
           </div>
         </div>
@@ -161,23 +161,23 @@ export default async function InsightsPage() {
         <div className="page-shell section-pad">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <p className="eyebrow mb-5">Policy Read</p>
+              <p className="eyebrow mb-5">다음에 볼 점</p>
               <h2 className="type-section">
-                그래서 어디에 개입해야 하나.
+                그래서 무엇을 먼저 봐야 할까.
               </h2>
             </div>
             <div className="grid gap-px overflow-hidden rounded-card bg-line md:grid-cols-3">
               <PolicyCard
-                title="저가 저장소 보존"
-                body="하대원, 은행, 복정 일대는 점수는 낮아도 월세 접근성이 높다. 정비와 공급 정책에서 밀려나면 대체지가 사라진다."
+                title="월세가 낮은 동 지키기"
+                body="하대원, 은행, 복정 일대는 전체 점수는 낮아도 월세 부담이 작습니다. 이런 동이 사라지면 선택지가 줄어듭니다."
               />
               <PolicyCard
-                title="판교 주변 고가화 완충"
-                body="시흥동과 판교동은 통근 이점이 크지만 월세가 빠르게 장벽이 된다. 공급 시나리오는 이 축을 먼저 검토해야 한다."
+                title="판교 주변 월세 부담 줄이기"
+                body="시흥동과 판교동은 출퇴근은 좋지만 월세가 부담입니다. 공급이나 지원을 먼저 살펴볼 필요가 있습니다."
               />
               <PolicyCard
-                title="강남권 통근 포함"
-                body="성남 청년의 직장은 판교에만 있지 않다. 강남권 통근을 제외하면 실제 청년 수요의 일부가 정책 밖으로 빠진다."
+                title="강남 출퇴근도 함께 보기"
+                body="성남 청년의 직장은 판교에만 있지 않습니다. 강남으로 오가는 사람도 함께 봐야 실제 수요를 놓치지 않습니다."
               />
             </div>
           </div>

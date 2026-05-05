@@ -27,11 +27,11 @@ export function createFallbackPolicyInsight(
   const activeScore = activeMetric.value(district);
 
   return {
-    summary: `${district.동명}은 ${strongest.label} 점수가 높고 ${weakest.label} 점수는 보완이 필요한 편입니다.`,
+    summary: `${district.동명}은 ${strongest.label} 점수가 높고 ${weakest.label} 점수는 더 살펴볼 필요가 있습니다.`,
     evidence: [
       `${activeMetric.label} 점수는 ${activeScore.toFixed(0)}점으로 ${getScoreTone(activeScore)}입니다.`,
       `${strongest.label} ${strongest.value.toFixed(0)}점, ${weakest.label} ${weakest.value.toFixed(0)}점입니다.`,
-      `월세 중위값은 ${
+      `월세 중간값은 ${
         district.median_rent ? `${district.median_rent.toFixed(0)}만원` : "확인되지 않음"
       }, 계약 수는 ${(district.n_contracts ?? 0).toLocaleString()}건입니다.`,
     ],
@@ -59,9 +59,9 @@ export function isAiPolicyInsight(value: unknown): value is AiPolicyInsightType 
 function getPolicyFactorList(district: DongScore): PolicyFactorType[] {
   return [
     { label: "판교 통근", value: district.SCORE_COMMUTE_PANGYO },
-    { label: "월세 접근성", value: district.SCORE_RENT },
-    { label: "생활 인프라", value: district.SCORE_INFRA },
-    { label: "청년 체류", value: district.SCORE_YOUTH_STAY },
+    { label: "월세 부담", value: district.SCORE_RENT },
+    { label: "생활 편의", value: district.SCORE_INFRA },
+    { label: "청년 머무름", value: district.SCORE_YOUTH_STAY },
   ];
 }
 
@@ -77,20 +77,20 @@ function getFallbackAction(
   weakest: PolicyFactorType
 ) {
   if (weakest.label === "판교 통근") {
-    return "교통 연결을 먼저 보완하면 낮은 주거비의 장점이 더 분명해집니다.";
+    return "교통이 좋아지면 낮은 월세의 장점이 더 커집니다.";
   }
 
-  if (weakest.label === "월세 접근성") {
-    return "임대료 완충이나 주변 대체지를 함께 묶어 검토하는 편이 좋습니다.";
+  if (weakest.label === "월세 부담") {
+    return "월세 부담을 낮추는 지원이나 주변 대안을 함께 봐야 합니다.";
   }
 
-  if (weakest.label === "생활 인프라") {
-    return "생활권 편의 요소를 보강해야 실제 거주 후보지로 설명력이 생깁니다.";
+  if (weakest.label === "생활 편의") {
+    return "편의시설과 생활 환경을 더 채워야 살기 좋은 동으로 보기 쉽습니다.";
   }
 
-  if (strongest.label === "청년 체류") {
-    return "이미 관측되는 청년 활동을 실거주 수요로 연결할 방법을 확인해야 합니다.";
+  if (strongest.label === "청년 머무름") {
+    return "청년들이 머무는 흐름을 실제 거주로 이어갈 방법을 봐야 합니다.";
   }
 
-  return "강점은 유지하되 낮은 축을 보완하는 방식으로 정책 우선순위를 잡는 편이 좋습니다.";
+  return "좋은 점은 살리고 낮은 점수의 이유를 먼저 살펴봐야 합니다.";
 }

@@ -20,7 +20,7 @@ export function MetricTabs({ value, onChange }: MetricTabsProps) {
 
   return (
     <div
-      aria-label="지도 지표 선택"
+      aria-label="지도 기준 선택"
       className="metric-tabs"
       data-map-metric-tabs
     >

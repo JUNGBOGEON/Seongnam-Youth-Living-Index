@@ -11,15 +11,15 @@ export function HomeFindings({ items }: HomeFindingsProps) {
       <div className="page-shell section-pad">
         <div className="findings-layout">
           <div>
-            <p className="eyebrow eyebrow-dark mb-5">Findings</p>
+            <p className="eyebrow eyebrow-dark mb-5">주요 내용</p>
             <h2 className="type-section text-white">
-              발견은 정책으로 이어집니다.
+              숫자에서 봐야 할 점을 골랐습니다.
             </h2>
             <Link
               href="/insights"
               className="mt-8 inline-flex text-base font-semibold text-bright-link transition-opacity hover:opacity-70"
             >
-              전체 인사이트 보기 <span aria-hidden>›</span>
+              전체 내용 보기 <span aria-hidden>›</span>
             </Link>
           </div>
 

@@ -28,16 +28,16 @@ export function HomeHero({ dongCount, rentGap, topDistrict }: HomeHeroProps) {
         <div className="home-hero-layout">
           <div className="copy-wide">
             <p className="mb-5 copy-note font-medium text-white/72">
-              Seongnam Youth Living Index
+              성남 청년 주거 지도
             </p>
             <h1 className="home-hero-title">
               성남 청년
               <br />
-              1인가구 주거 적합도.
+              혼자 살기 좋은 동 찾기.
             </h1>
             <p className="home-hero-copy">
-              민간데이터와 공공데이터를 성남시 50개 행정동 단위로 연결해
-              통근, 월세, 생활 인프라, 청년 체류를 하나의 지표로 읽습니다.
+              성남 50개 동을 통근, 월세, 생활 편의, 청년들이 머무는 정도로
+              비교했습니다. 청년 1인가구가 어디를 먼저 살펴보면 좋을지 보여줍니다.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
@@ -50,17 +50,17 @@ export function HomeHero({ dongCount, rentGap, topDistrict }: HomeHeroProps) {
                 href="/methodology"
                 className="rounded-field border border-white/40 px-5 py-3 copy-small font-semibold text-white transition-colors hover:border-white"
               >
-                산식 확인
+                계산 방식 보기
               </Link>
             </div>
           </div>
 
           <aside className="border-y border-white/24 py-5 lg:border-y-0 lg:border-l lg:pl-8">
-            <p className="mb-5 copy-label text-white/62">Current index</p>
+            <p className="mb-5 copy-label text-white/62">한눈에 보기</p>
             <dl className="grid grid-cols-3 gap-4 lg:grid-cols-1 lg:gap-5">
               <HeroMetric label="행정동" value={dongCount.toString()} />
               <HeroMetric label="1위" value={topDistrict} />
-              <HeroMetric label="월세 격차" value={`${rentGap.toFixed(1)}배`} />
+              <HeroMetric label="월세 차이" value={`${rentGap.toFixed(1)}배`} />
             </dl>
           </aside>
         </div>

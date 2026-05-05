@@ -36,7 +36,7 @@ export function SelectedDistrictCard({
             {activeMetric.label} 점수
           </p>
           <p className="mt-0.5 copy-tiny font-medium text-subtle">
-            {rank ? `Top ${rank}` : "현재 선택 기준"}
+            {rank ? `상위 ${rank}위` : "현재 선택 기준"}
           </p>
         </div>
         <p className="shrink-0 type-util font-semibold leading-none tabular-nums text-deep sm:type-card">

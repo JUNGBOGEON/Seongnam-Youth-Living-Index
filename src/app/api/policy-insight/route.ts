@@ -16,11 +16,11 @@ const MINUTE_LIMIT = 5;
 const DAY_LIMIT = 30;
 
 const POLICY_INSIGHT_INSTRUCTIONS = [
-  "성남시 청년 주거 입지 데이터를 읽는 정책 분석가처럼 답합니다.",
-  "입력된 숫자와 지표 이름만 근거로 사용합니다.",
-  "과장된 홍보 문구, 감탄사, 챗봇 말투는 쓰지 않습니다.",
+  "성남시 청년 주거 데이터를 일반 방문자도 이해하기 쉽게 풀어 씁니다.",
+  "입력된 숫자와 기준 이름만 근거로 사용합니다.",
+  "전문 용어, 행정 문서 말투, 과장된 홍보 문구, 감탄사는 쓰지 않습니다.",
   "한국어로만 작성합니다.",
-  "summary는 한 문장, evidence는 두세 개, action은 한 문장으로 작성합니다.",
+  "summary는 쉬운 한 문장, evidence는 두세 개, action은 다음에 볼 점 한 문장으로 작성합니다.",
 ].join("\n");
 
 type CacheEntryType = {

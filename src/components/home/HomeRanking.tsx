@@ -10,19 +10,19 @@ export function HomeRanking({ districts }: HomeRankingProps) {
     <section className="section-white border-b border-line">
       <div className="page-shell section-pad ranking-layout">
         <div>
-          <p className="eyebrow mb-5">Ranking</p>
+          <p className="eyebrow mb-5">동별 순위</p>
           <h2 className="type-section mb-6">
-            상위권의 이유는 서로 다릅니다.
+            점수가 높은 이유는 동마다 다릅니다.
           </h2>
           <p className="type-body text-utility">
-            단순히 판교와 가까운 곳이 아니라 통근, 월세, 인프라, 체류 패턴이
-            함께 버티는 동이 상위권에 남습니다.
+            판교와 가까운지만 본 순위가 아닙니다. 출퇴근, 월세, 생활 편의,
+            청년들이 실제로 머무는 정도를 함께 봤습니다.
           </p>
           <Link
             href="/map"
             className="mt-8 inline-flex text-base font-semibold text-link transition-opacity hover:opacity-70"
           >
-            전체 50개 동 보기 <span aria-hidden>›</span>
+            50개 동 전체 보기 <span aria-hidden>›</span>
           </Link>
         </div>
 

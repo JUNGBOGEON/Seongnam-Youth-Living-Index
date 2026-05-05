@@ -3,28 +3,28 @@ export function HomePressure() {
     <section className="section-gray">
       <div className="page-shell section-pad">
         <div className="mb-14 copy-wide">
-          <p className="eyebrow mb-5">Pressure Points</p>
-          <h2 className="type-section">가격만으로는 설명되지 않습니다.</h2>
+          <p className="eyebrow mb-5">핵심 숫자</p>
+          <h2 className="type-section">월세만 보면 놓치는 게 있습니다.</h2>
         </div>
 
         <div className="grid gap-px overflow-hidden rounded-field bg-line md:grid-cols-3">
           <PressurePanel
             label="통근"
             value="36%"
-            title="판교 체류자 중 실제 직장인"
-            body="판교는 일자리의 중심이지만, 매일 오래 머무는 사람보다 지나가는 방문자가 더 많습니다."
+            title="판교에 오래 머무는 직장인"
+            body="판교는 일자리가 많지만, 모두가 매일 오래 머무는 것은 아닙니다. 실제 출퇴근 흐름을 따로 봐야 합니다."
           />
           <PressurePanel
             label="월세"
             value="5배"
-            title="판교동과 하대원동의 격차"
-            body="가까운 동이 곧 접근 가능한 동은 아닙니다. 가격은 통근 이점을 순식간에 지웁니다."
+            title="판교동과 하대원동의 월세 차이"
+            body="회사와 가까워도 월세가 높으면 살기 어렵습니다. 거리와 비용을 함께 봐야 합니다."
           />
           <PressurePanel
             label="금융"
             value="6배"
-            title="30대 진입 시 부채 증가"
-            body="청년 주거 정책은 첫 취업 이후의 소득만이 아니라 다음 생애 단계의 부채까지 봐야 합니다."
+            title="30대로 갈 때 커지는 빚"
+            body="집을 고를 때는 지금 월급만 볼 수 없습니다. 몇 년 뒤 감당해야 할 빚도 함께 봐야 합니다."
           />
         </div>
       </div>

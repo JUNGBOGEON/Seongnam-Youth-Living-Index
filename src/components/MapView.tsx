@@ -179,12 +179,12 @@ function MapHeader() {
     <div className="border-b border-line bg-white p-4 sm:p-5">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="eyebrow mb-2">Map View</p>
+          <p className="eyebrow mb-2">지도 보기</p>
           <h2 className="type-util font-semibold leading-tight text-ink">
-            동별 강도를 먼저 보고, 눌러서 이유를 확인합니다.
+            색이 진한 동을 누르면 이유를 볼 수 있습니다.
           </h2>
           <p className="mt-2 copy-narrow copy-note leading-relaxed text-muted">
-            지표를 바꾸면 지도, 순위, 정책 판정이 함께 바뀝니다.
+            기준을 바꾸면 지도 색, 순위, 설명이 함께 바뀝니다.
           </p>
         </div>
       </div>

@@ -16,7 +16,7 @@ export function TopDistrictList({
 }: TopDistrictListProps) {
   return (
     <aside className="border-t border-line bg-white p-5 xl:border-l xl:border-t-0">
-      <p className="eyebrow mb-4">Top 5</p>
+      <p className="eyebrow mb-4">상위 5개 동</p>
       <ol className="space-y-2">
         {districts.slice(0, 5).map((district, index) => (
           <li key={`${activeMetric.key}-${district.dong_cd}`}>

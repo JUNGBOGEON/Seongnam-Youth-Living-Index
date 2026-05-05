@@ -55,25 +55,25 @@ export const METRICS: MetricDefinition[] = [
   {
     key: "syli",
     label: "종합",
-    description: "통근, 월세, 인프라, 청년 체류, 동 유형을 함께 본 적합도",
+    description: "출퇴근, 월세, 생활 편의, 청년들이 얼마나 머무는지를 함께 본 점수",
     value: (score) => score.SYLI_v02,
   },
   {
     key: "commute",
     label: "통근",
-    description: "판교 업무지구 접근성과 청년 이동 강도",
+    description: "판교로 오가기 얼마나 쉬운지",
     value: (score) => score.SCORE_COMMUTE_PANGYO,
   },
   {
     key: "rent",
     label: "월세",
-    description: "중위 월세가 낮을수록 높게 환산한 접근성",
+    description: "월세 부담이 얼마나 낮은지",
     value: (score) => score.SCORE_RENT,
   },
   {
     key: "infra",
     label: "생활",
-    description: "생활 인프라와 청년 소비가 관측되는 정도",
+    description: "가게와 생활 편의가 얼마나 충분한지",
     value: (score) => score.SCORE_INFRA,
   },
 ];

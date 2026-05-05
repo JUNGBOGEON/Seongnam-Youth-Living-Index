@@ -41,12 +41,12 @@ export function AiPolicyRead({
   const isLoading = loadingKey === insightKey;
   const hasInsight = visibleResult !== null;
   const sourceLabel =
-    visibleResult?.source === "fallback" ? "기본 해석" : "AI 기반 해석";
+    visibleResult?.source === "fallback" ? "기본 설명" : "AI가 쉽게 정리";
   const buttonLabel = isLoading
     ? "해석 중"
     : hasInsight
       ? "다시 보기"
-      : "AI 해석 보기";
+      : "쉽게 설명";
 
   async function handleInsightClick() {
     if (isLoading) return;
@@ -101,9 +101,9 @@ export function AiPolicyRead({
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <p className="copy-tiny font-semibold uppercase text-subtle">
-              AI Read
+              쉬운 설명
             </p>
-            <h3 className="mt-1 type-subhead text-ink">정책 해석 보강</h3>
+            <h3 className="mt-1 type-subhead text-ink">이 동은 어떤가요?</h3>
           </div>
           <button
             type="button"
@@ -139,7 +139,7 @@ export function AiPolicyRead({
             </ul>
 
             <div className="rounded-field bg-white px-3 py-3">
-              <p className="copy-tiny font-semibold text-subtle">다음 판단</p>
+              <p className="copy-tiny font-semibold text-subtle">다음에 볼 점</p>
               <p className="mt-1 copy-note leading-normal text-ink">
                 {visibleResult.insight.action}
               </p>
@@ -147,7 +147,7 @@ export function AiPolicyRead({
           </div>
         ) : (
           <p className="mt-5 copy-note leading-normal text-muted">
-            {district.동명}의 {activeMetric.label} 기준을 정책 문장으로 한 번 더 정리합니다.
+            {district.동명}의 {activeMetric.label} 점수가 어떤 의미인지 쉽게 풀어봅니다.
           </p>
         )}
       </div>

@@ -4,17 +4,17 @@ const nextSteps = [
   {
     href: "/map",
     label: "지도",
-    title: "색으로 먼저 보고, 동을 눌러 확인합니다.",
+    title: "동별 점수를 지도에서 바로 확인합니다.",
   },
   {
     href: "/insights",
-    label: "인사이트",
-    title: "20개 발견을 정책 압력별로 다시 읽습니다.",
+    label: "주요 내용",
+    title: "중요한 숫자 20개를 쉽게 풀어봅니다.",
   },
   {
     href: "/methodology",
-    label: "방법론",
-    title: "공식, 데이터 출처, 한계를 공개합니다.",
+    label: "계산 방식",
+    title: "점수를 어떻게 만들었는지 보여줍니다.",
   },
 ];
 

@@ -5,7 +5,7 @@ import { MapView } from "@/components/MapView";
 export const metadata: Metadata = {
   title: "지도 — SYLI",
   description:
-    "성남시 50개 행정동의 청년 1인가구 주거 적합도를 입체 데이터 지형도로 탐색합니다.",
+    "성남시 50개 행정동을 청년 1인가구 관점에서 쉽게 비교합니다.",
 };
 
 export default async function MapPage() {
@@ -20,9 +20,9 @@ export default async function MapPage() {
         <div className="page-shell-wide page-intro-tight">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="eyebrow mb-3">Interactive Map</p>
+              <p className="eyebrow mb-3">지도</p>
               <h1 className="panel-title font-semibold leading-tight text-ink sm:text-4xl">
-                성남 50개 행정동을 지표별로 비교합니다.
+                성남 50개 동을 한눈에 비교합니다.
               </h1>
             </div>
 

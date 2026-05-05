@@ -16,8 +16,8 @@ type SiteHeaderProps = {
 const navItems: Array<{ href: string; key: NavKey; label: string }> = [
   { href: "/", key: "home", label: "홈" },
   { href: "/map", key: "map", label: "지도" },
-  { href: "/insights", key: "insights", label: "인사이트" },
-  { href: "/methodology", key: "methodology", label: "방법론" },
+  { href: "/insights", key: "insights", label: "주요 내용" },
+  { href: "/methodology", key: "methodology", label: "계산 방식" },
 ];
 
 const NAV_DELAY_MS = 150;

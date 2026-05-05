@@ -4,10 +4,10 @@ type HomeIndexDesignProps = {
 
 const weights = [
   { color: "#1d1d1f", label: "판교 통근", value: "25.0%" },
-  { color: "#535356", label: "생활 인프라", value: "18.75%" },
-  { color: "#86868b", label: "청년 체류", value: "18.75%" },
-  { color: "#b9b9bf", label: "동 유형", value: "18.75%" },
-  { color: "#d2d2d7", label: "월세 접근성", value: "18.75%" },
+  { color: "#535356", label: "생활 편의", value: "18.75%" },
+  { color: "#86868b", label: "청년 머무름", value: "18.75%" },
+  { color: "#b9b9bf", label: "동의 특징", value: "18.75%" },
+  { color: "#d2d2d7", label: "월세 부담", value: "18.75%" },
 ];
 
 export function HomeIndexDesign({ guAverage }: HomeIndexDesignProps) {
@@ -15,8 +15,8 @@ export function HomeIndexDesign({ guAverage }: HomeIndexDesignProps) {
     <section className="section-white">
       <div className="page-shell section-pad index-layout">
         <div>
-          <p className="eyebrow mb-5">Index Design</p>
-          <h2 className="type-section mb-8">다섯 개 축으로 계산합니다.</h2>
+          <p className="eyebrow mb-5">점수 구성</p>
+          <h2 className="type-section mb-8">다섯 가지를 함께 보고 점수를 냅니다.</h2>
           <div className="h-4 overflow-hidden rounded-sm bg-panel">
             {weights.map((weight) => (
               <span
@@ -39,7 +39,7 @@ export function HomeIndexDesign({ guAverage }: HomeIndexDesignProps) {
         </div>
 
         <aside className="rounded-field border border-line p-7">
-          <p className="eyebrow mb-6">District Average</p>
+          <p className="eyebrow mb-6">구별 평균</p>
           <dl className="space-y-5">
             {guAverage.map(([gu, value]) => (
               <div key={gu}>
