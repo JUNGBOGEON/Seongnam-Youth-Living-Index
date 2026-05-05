@@ -1,0 +1,8 @@
+.env*
+.next
+node_modules
+coverage
+.DS_Store
+AGENTS.md
+CLAUDE.md
+DESIGN.md

@@ -5,7 +5,9 @@ import {
   getPolicyVerdict,
   withSubjectParticle,
 } from "@/components/map/copy";
+import { AiPolicyRead } from "@/components/map/ai-policy-read";
 import type { MetricDefinition } from "@/components/map/model";
+import { createFallbackPolicyInsight } from "@/lib/policy-ai.util";
 
 type DistrictPanelProps = {
   activeMetric: MetricDefinition;
@@ -31,6 +33,7 @@ export function DistrictPanel({
   const weakest = [...explanatoryRows].sort((a, b) => a.value - b.value)[0];
   const policyRead = getPolicyRead(district);
   const verdict = getPolicyVerdict(district);
+  const fallbackInsight = createFallbackPolicyInsight(district, activeMetric);
 
   return (
     <div>
@@ -97,6 +100,12 @@ export function DistrictPanel({
           현재 지도는 {activeMetric.description} 기준의 분포를 보여줍니다.
         </p>
       </div>
+
+      <AiPolicyRead
+        activeMetric={activeMetric}
+        district={district}
+        fallbackInsight={fallbackInsight}
+      />
 
       <dl className="space-y-4 p-6">
         {scoreRows.map((row) => (
