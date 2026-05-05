@@ -1,4 +1,5 @@
 import type { DongScore } from "@/lib/data";
+import type { MetricKey } from "@/components/map/model";
 
 export function getPolicyRead(district: DongScore) {
   if (district.SCORE_COMMUTE_PANGYO >= 80 && district.SCORE_RENT < 50) {
@@ -78,6 +79,22 @@ export function formatRent(district: DongScore) {
   return district.median_rent
     ? `${district.median_rent.toFixed(0)}만원`
     : "데이터 없음";
+}
+
+export function getScoreReason(district: DongScore, metricKey: MetricKey) {
+  if (metricKey === "commute") {
+    return `${district.동명}의 판교 통근 점수는 판교 쪽으로 오가고 머무는 흐름을 본 값입니다. 숫자가 높을수록 판교 생활권과 더 가깝게 움직인다는 뜻입니다.`;
+  }
+
+  if (metricKey === "rent") {
+    return `${district.동명}의 월세 점수는 월세 중간값을 반대로 계산한 값입니다. 월세가 낮을수록 청년 1인가구 부담이 작다고 보고 점수를 높였습니다.`;
+  }
+
+  if (metricKey === "infra") {
+    return `${district.동명}의 생활 점수는 가게 수와 청년 소비 흐름을 함께 본 값입니다. 편의시설이 많고 실제 이용 흐름이 보일수록 점수가 높아집니다.`;
+  }
+
+  return `${district.동명}의 종합 점수는 통근, 월세, 생활 편의, 청년 머무름, 동의 특징을 더한 값입니다. 한 가지가 높아도 다른 조건이 약하면 최종 점수는 함께 낮아질 수 있습니다.`;
 }
 
 function hasFinalConsonant(value: string) {

@@ -62,6 +62,24 @@ const caveats = [
   "현재 화면은 SYLI v0.2입니다. 집 공급, 안전, 강남 출퇴근은 다음 버전에서 더 자세히 나눌 예정입니다.",
 ];
 
+const scoreQuestions = [
+  {
+    question: "왜 모두 100점으로 바꿨나요?",
+    answer:
+      "월세는 만원, 이동은 사람 수와 시간, 가게는 개수처럼 단위가 서로 다릅니다. 그대로 더하면 비교가 안 되기 때문에 같은 0-100점으로 맞췄습니다.",
+  },
+  {
+    question: "왜 판교 통근 비중이 조금 더 높나요?",
+    answer:
+      "청년 1인가구에게 출퇴근은 매일 반복되는 조건입니다. 그래서 다른 기준보다 조금 더 크게 반영했습니다.",
+  },
+  {
+    question: "월세 점수는 왜 낮을수록 높게 나오나요?",
+    answer:
+      "이 점수는 살기 편한지를 보는 점수입니다. 월세는 낮을수록 부담이 작기 때문에 낮은 월세가 높은 점수로 바뀝니다.",
+  },
+];
+
 export default async function MethodologyPage() {
   const scores = await getSyliScores();
   const top = [...scores].sort((a, b) => b.SYLI_v02 - a.SYLI_v02)[0];
@@ -181,6 +199,32 @@ export default async function MethodologyPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="page-shell-narrow section-pad">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <p className="eyebrow mb-5">자주 궁금한 점</p>
+              <h2 className="type-section mb-6">
+                숫자를 볼 때 헷갈리기 쉬운 부분입니다.
+              </h2>
+            </div>
+
+            <div className="divide-y divide-line rounded-card border border-line bg-white">
+              {scoreQuestions.map((item) => (
+                <div key={item.question} className="p-6">
+                  <h3 className="type-util font-semibold leading-tight text-ink">
+                    {item.question}
+                  </h3>
+                  <p className="mt-3 type-body text-utility">
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

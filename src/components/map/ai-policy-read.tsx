@@ -41,12 +41,16 @@ export function AiPolicyRead({
   const isLoading = loadingKey === insightKey;
   const hasInsight = visibleResult !== null;
   const sourceLabel =
-    visibleResult?.source === "fallback" ? "기본 설명" : "AI가 쉽게 정리";
+    visibleResult?.source === "fallback"
+      ? "기본 요약"
+      : visibleResult?.source === "cache"
+        ? "AI 요약 저장본"
+        : "AI 생성 요약";
   const buttonLabel = isLoading
-    ? "해석 중"
+    ? "AI 요약 중"
     : hasInsight
-      ? "다시 보기"
-      : "쉽게 설명";
+      ? "다시 요약"
+      : "AI 요약 보기";
 
   async function handleInsightClick() {
     if (isLoading) return;
@@ -101,9 +105,11 @@ export function AiPolicyRead({
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <p className="copy-tiny font-semibold uppercase text-subtle">
-              쉬운 설명
+              AI 요약
             </p>
-            <h3 className="mt-1 type-subhead text-ink">이 동은 어떤가요?</h3>
+            <h3 className="mt-1 type-subhead text-ink">
+              AI가 이 동을 쉽게 정리합니다.
+            </h3>
           </div>
           <button
             type="button"
@@ -147,7 +153,8 @@ export function AiPolicyRead({
           </div>
         ) : (
           <p className="mt-5 copy-note leading-normal text-muted">
-            {district.동명}의 {activeMetric.label} 점수가 어떤 의미인지 쉽게 풀어봅니다.
+            AI가 {district.동명}의 {activeMetric.label} 점수가 어떤 의미인지
+            짧게 요약합니다.
           </p>
         )}
       </div>

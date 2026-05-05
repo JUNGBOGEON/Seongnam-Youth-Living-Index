@@ -3,6 +3,7 @@ import {
   formatRent,
   getPolicyRead,
   getPolicyVerdict,
+  getScoreReason,
   withSubjectParticle,
 } from "@/components/map/copy";
 import { AiPolicyRead } from "@/components/map/ai-policy-read";
@@ -33,6 +34,7 @@ export function DistrictPanel({
   const weakest = [...explanatoryRows].sort((a, b) => a.value - b.value)[0];
   const policyRead = getPolicyRead(district);
   const verdict = getPolicyVerdict(district);
+  const scoreReason = getScoreReason(district, activeMetric.key);
   const fallbackInsight = createFallbackPolicyInsight(district, activeMetric);
 
   return (
@@ -50,6 +52,14 @@ export function DistrictPanel({
           </div>
           <p className="mt-2 copy-label text-muted">
             {activeMetric.label} 기준
+          </p>
+        </div>
+        <div className="mt-5 rounded-field bg-surface p-4">
+          <p className="copy-tiny font-semibold text-subtle">
+            왜 이 점수인가요?
+          </p>
+          <p className="mt-2 copy-note leading-normal text-utility">
+            {scoreReason}
           </p>
         </div>
         <div className="mt-6 grid gap-2">
@@ -108,6 +118,14 @@ export function DistrictPanel({
       />
 
       <dl className="space-y-4 p-6">
+        <div>
+          <dt className="copy-tiny font-semibold text-subtle">
+            기준별 점수
+          </dt>
+          <dd className="mt-1 copy-note leading-normal text-muted">
+            100점에 가까울수록 성남 50개 동 안에서 해당 조건이 좋은 편입니다.
+          </dd>
+        </div>
         {scoreRows.map((row) => (
           <ScoreBar
             key={row.key}
